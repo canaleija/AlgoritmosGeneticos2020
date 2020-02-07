@@ -17,6 +17,18 @@ public class Poblacion{
 
     }
 
+    // creacion  población con muestreo
+    public Poblacion(LinkedList<Individuo> muestra, int i){
+       
+        this.poblacion = new LinkedList<>();
+        for(int x=0;x<muestra.size();x++){
+            this.poblacion.add(new Individuo(muestra.get(x).getGenotipo()));
+
+        }
+
+
+    }
+
     public void inicializarAleatorimente(){
 
        // un proceso iterativo con respecto a i
@@ -26,8 +38,8 @@ public class Poblacion{
        }
 
     }
-    public LinkedList<Individuo> generarMuestraAleatoria(int p){
-        int c = (this.i*p)/100;
+    public LinkedList<Individuo> generarMuestraAleatoria(double p){
+        int c = (int)((this.i*p)/100);
         LinkedList<Individuo> muestra = new LinkedList<>();
         int pa = 0;
         Random ran = new Random();
@@ -42,6 +54,9 @@ public class Poblacion{
 
 
     }
+
+   
+
 
    public LinkedList<Individuo> getPoblacion(){
 
