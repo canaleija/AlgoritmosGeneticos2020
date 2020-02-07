@@ -63,4 +63,9 @@ public class Individuo{
         }
     }
 
+    @Override
+    public String toString() {
+        String aux = ""+this.fenotipo+": "+this.fitness;
+        return aux;
+    }
 }
