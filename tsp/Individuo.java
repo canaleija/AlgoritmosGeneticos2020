@@ -5,6 +5,8 @@ import java.util.Random;
 
 public class Individuo{
 
+    public static int[][] matrizDistancias;
+
     private int [] genotipo;
     private int fitness;
 
@@ -15,7 +17,24 @@ public class Individuo{
         calcularFitness();
         
     }
+    public Individuo(int[] genotipo){
+        this.genotipo = genotipo.clone();
+        calcularFitness();
+
+
+    }
     public void calcularFitness(){
+        if(matrizDistancias!=null){
+            this.fitness = 0;
+            // recorremos el genotipo 
+            for(int x=0; x<this.genotipo.length-2;x++){
+                int d = matrizDistancias[this.genotipo[x]][this.genotipo[x+1]];  
+                this.fitness+= d;
+
+            }
+            this.fitness+= matrizDistancias[this.genotipo[this.genotipo.length-1]][this.genotipo[0]];
+
+        }
         
     }
     public void inicializarAleatoriamente(){
